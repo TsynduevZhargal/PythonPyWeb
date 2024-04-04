@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings  # Чтобы была возможность подгрузить файл с настройками
 from django.conf.urls.static import static  # Чтобы подгрузить обработчик статических файлов
+from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.app.urls')),
     path('train/', include('apps.db_train.urls')),
     path('tinymce/', include('tinymce.urls')),
+    path('api_alter/', include('apps.db_train_alternative.urls')),
 ]
 
 if settings.DEBUG:
